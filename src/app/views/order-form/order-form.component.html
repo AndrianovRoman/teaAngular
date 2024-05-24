@@ -1,0 +1,120 @@
+<div class="container">
+  <section class=" mt-5 pt-4">
+    <form action="" method="post" class="form mb-5" [formGroup]="orderForm" *ngIf="!success">
+      <h2 class="h2 text-center mb-5">Сделать заказ</h2>
+      <div class="row">
+        <div class="col-sm-4 wow animate__lightSpeedInLeft">
+          <div class="mb-3">
+            <label for="name" class="form-label" >Имя</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+
+            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+              <div class="text-danger" *ngIf="name?.errors?.['required']">
+                Имя обязательно.
+              </div>
+              <div class="text-danger" *ngIf="name?.errors?.['pattern']">
+                Имя должно содержать только латинские буквы.
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-4 wow animate__zoomInDown">
+          <div class="mb-3">
+            <label for="surname" class="form-label" >Фамилия</label>
+            <input type="text" class="form-control" id="surname" formControlName="lastName" >
+
+            <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+              <div class="text-danger" *ngIf="lastName?.errors?.['required']">
+                Фамилия обязательна.
+              </div>
+              <div class="text-danger" *ngIf="lastName?.errors?.['pattern']">
+                Фамилия должна содержать только латинские буквы.
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-4 wow animate__lightSpeedInRight">
+          <div class="mb-3">
+            <label for="phone" class="form-label" >Телефон</label>
+            <input type="text" class="form-control" id="phone" formControlName="phone" >
+
+            <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)">
+              <div class="text-danger" *ngIf="phone?.errors?.['required']">
+                Телефон обязателен.
+              </div>
+              <div class="text-danger" *ngIf="phone?.errors?.['pattern']">
+                Телефон должен содержать только цифры.
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-6 wow animate__lightSpeedInLeft">
+          <div class="mb-3">
+            <label for="country" class="form-label">Страна</label>
+            <input type="text" class="form-control" id="country" formControlName="country">
+
+            <div *ngIf="country?.invalid && (country?.dirty || country?.touched)">
+              <div class="text-danger" *ngIf="country?.errors?.['required']">
+                Страна обязательна.
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-6 wow animate__lightSpeedInRight">
+          <div class="mb-3">
+            <label for="index" class="form-label">Индекс</label>
+            <input type="number" class="form-control" id="index" formControlName="zip">
+
+            <div *ngIf="zip?.invalid && (zip?.dirty || zip?.touched)">
+              <div class="text-danger" *ngIf="zip?.errors?.['required']">
+                Индекс обязателен.
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-12 wow animate__zoomInDown">
+          <div class="mb-3">
+            <label for="address" class="form-label">Адрес</label>
+            <input type="text" class="form-control" id="address" formControlName="address">
+
+            <div *ngIf="address?.invalid && (address?.dirty || address?.touched)">
+              <div class="text-danger" *ngIf="address?.errors?.['required']">
+                Адрес обязателен.
+              </div>
+              <div class="text-danger" *ngIf="address?.errors?.['pattern']">
+                Адрес должен содержать только латинские буквы, цифры, пробелы, дефис и слеш, все остальное запрещено!
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-6 wow animate__lightSpeedInRight">
+          <div class="mb-3">
+            <label for="product" class="form-label">Продукт</label>
+            <input type="text" class="form-control" id="product" name="product" formControlName="product" [attr.disabled]="true">
+          </div>
+        </div>
+        <div class="col-sm-6 wow animate__zoomInDown">
+          <div class="mb-3">
+            <label for="comment" class="form-label">Комментарий</label>
+            <input type="text" class="form-control" id="comment" formControlName="comment">
+          </div>
+        </div>
+      </div>
+      <button id="formBtn" class="btn btn-primary mt-2 hvr-pulse-shrink" [disabled]="!orderForm.valid" (click)="signIn()">Отправить</button>
+      <div class="text-danger" *ngIf="error" >Произошла ошибка. Попробуйте еще раз.</div>
+    </form>
+
+    <section class="thanks" *ngIf="success">
+      <div class="h2">
+        Спасибо за заказ. Мы свяжемся с вами в ближайшее время!
+      </div>
+    </section>
+
+  </section>
+</div>

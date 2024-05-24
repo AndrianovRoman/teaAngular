@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="product">
+    <div class="col-12 wow animate__rollIn mb-5" style="max-width: 415px;">
+      <div class="card">
+        <img src="{{product.image}}" class="card-img-top" alt="image5">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{product.title}}</h5>
+          <p class="card-text">Цена: {{product.price}} руб.</p>
+          <p class="card-text">{{product.description}}</p>
+          <a routerLink="/order" [queryParams]="{product: product.title}"
+             class="btn btn-primary hvr-pulse-shrink d-flex justify-content-center">Купить</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
