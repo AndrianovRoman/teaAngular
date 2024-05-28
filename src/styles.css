@@ -42,6 +42,15 @@
 
 .accordion-item {
   border: 0 !important;
+  margin-bottom: 16px;
+}
+
+.accordion-button:not(.collapsed) {
+  color: white;
+}
+
+.accordion-button {
+  color: white;
 }
 
 .accordion-item:first-of-type .accordion-button {
